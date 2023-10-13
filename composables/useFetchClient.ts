@@ -104,7 +104,6 @@ export const useFetchClient = () => {
         var api = useApi(apiName)
         options = {
             ...options,
-            method: api.method,
             body: body,
         }
         return FETCH(api.url, params, null, options)

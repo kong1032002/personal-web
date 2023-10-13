@@ -1,7 +1,7 @@
 <script lang="ts" setup></script>
 
 <template>
-  <v-app-bar app bordered absolute="">
+  <v-app-bar app bordered>
     <template v-slot:image>
       <v-img></v-img>
     </template>

@@ -1,12 +1,19 @@
 export const useApi = (name: string) => {
   const api = {
     "admin": {
+      url: '',
       method: 'GET',
-      url: ''
+      options: {
+        headers: {
+
+        }
+      }
     },
     "nuxt_beers": {
+      url: '/beers',
       method: 'GET',
-      url: '/beers'
+      headers: {
+      }
     }
   }
   return api[name as keyof typeof api];

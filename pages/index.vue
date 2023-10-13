@@ -1,11 +1,22 @@
 
 <template>
-  <div>
+  <v-container fluid>
     Page: foo
-    <pre>
-      {{ data }}
-    </pre>
-  </div>
+    <v-row>
+      <v-col>
+        <pre>
+            {{ data }}
+          </pre>
+      </v-col>
+      <v-col>
+        <p>
+          {
+          "Name": "tessaadddddddddddddddddddddddddddddddddddddsdddddddddddsddddddddddt"
+          }
+        </p>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script lang="ts" setup>
