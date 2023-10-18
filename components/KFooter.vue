@@ -1,6 +1,6 @@
 
 <template>
-    <v-footer class="bg-grey-lighten-1">
+    <v-footer class="bg-grey-darken-3" :elevation="10">
         <v-row justify="center" no-gutters>
             <v-btn v-for="link in links" :key="link" color="white" variant="text" class="mx-2" rounded="xl">
                 {{ link }}
@@ -13,7 +13,11 @@
 </template>
 <script setup lang="ts">
 const links = [
-    'asdasd',
-    'asdasd'
+    'Home',
+    'About Us',
+    'Team',
+    'Services',
+    'Blog',
+    'Contact Us',
 ]
 </script>

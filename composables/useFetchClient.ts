@@ -9,7 +9,7 @@ export const useFetchClient = () => {
         baseURL: config.baseUrl ?? 'https://api.nuxtjs.dev',
         // cache request
         headers: {
-            Authorization: userAuth.value ? `Bearer ${userAuth.value}` : null,
+            "Authorization": userAuth.value ? `Bearer ${userAuth.value}` : null,
             "Content-Type": "application/json"
         },
     }
@@ -65,7 +65,7 @@ export const useFetchClient = () => {
      * @param options Additional options for the PUT request.
      * @returns A promise that resolves to the response from the server.
      */
-    const PUT = (url: string, id: number, body?: {} | null, options?: {}) => {
+    const PUT = (url: string, id: number | null, body?: {} | null, options?: {}) => {
         options = defu({ ...options, method: 'PUT' }, defaults)
         url = `${url}/${id}`
         return FETCH(url, null, body, options)
@@ -100,11 +100,21 @@ export const useFetchClient = () => {
         return FETCH(url, null, null, options)
     }
 
-    const API = (apiName: string, params?: {} | null, body?: {} | null, options?: {}) => {
-        var api = useApi(apiName)
+    /**
+     * Send request to api with apiName in composable api.ts
+     * @param api_name 
+     * @param params 
+     * @param body 
+     * @param options 
+     * @returns 
+     */
+    const API = (api_name: string, params?: {} | null, body?: {} | null, options?: {}) => {
+        var api = useApi(api_name)
         options = {
             ...options,
             body: body,
+            method: api.method,
+            headers: api.headers
         }
         return FETCH(api.url, params, null, options)
     }

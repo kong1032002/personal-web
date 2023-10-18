@@ -11,9 +11,8 @@
                 </template>
             </v-list-item>
             <v-divider></v-divider>
-            <v-list-item prepend-icon="mdi-home-city" title="Home" value="home"></v-list-item>
-            <v-list-item prepend-icon="mdi-account" title="My Account" value="account"></v-list-item>
-            <v-list-item prepend-icon="mdi-account-group-outline" title="Users" value="users"></v-list-item>
+            <v-list-item v-for="(item, index) in pages" :key="index" :prepend-icon="item.icon" :title="item.title"
+                :value="item.value" :to="item.to" />
         </v-list>
     </v-navigation-drawer>
 </template>
@@ -21,6 +20,32 @@
 <script lang="ts" setup>
 const drawer = ref(true)
 const rail = ref(true)
+const pages = [
+    {
+        icon: 'mdi-home-city',
+        title: 'Home',
+        value: 'home',
+        to: ''
+    },
+    {
+        icon: 'mdi-account',
+        title: 'My account',
+        value: 'account',
+        to: ''
+    },
+    {
+        icon: 'mdi-account-group-outline',
+        title: 'Users',
+        value: 'account',
+        to: ''
+    },
+    {
+        icon: 'mdi-key',
+        title: '1Password',
+        value: 'account',
+        to: ''
+    }
+]
 </script>
 
 <style scoped></style>

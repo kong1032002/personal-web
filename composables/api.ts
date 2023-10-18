@@ -3,16 +3,20 @@ export const useApi = (name: string) => {
     "admin": {
       url: '',
       method: 'GET',
-      options: {
-        headers: {
-
-        }
+      headers: {
       }
     },
     "nuxt_beers": {
       url: '/beers',
       method: 'GET',
       headers: {
+      }
+    },
+    "ntkong": {
+      url: '/huybeo',
+      method: 'POST',
+      headers: {
+        hehe: "nguthe"
       }
     }
   }
