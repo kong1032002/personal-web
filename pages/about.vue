@@ -10,8 +10,9 @@
 <style scoped></style>
 
 <script lang="ts" setup>
+const data = ref({})
 
-const data = await useFetchClient().fetchClientFactory.POST('https://api.sticpay.com/rest_pay/pay',
+await useFetchClient().fetchClientFactory.POST('https://api.sticpay.com/rest_pay/pay',
   {
     "merchant_email": "greenpotserviceslimited@gmail.com",
     "order_no": "12345abcde",
@@ -21,6 +22,12 @@ const data = await useFetchClient().fetchClientFactory.POST('https://api.sticpay
     "sign": "b1008105b9e203b64cb9a4691095f13c",
     "interface_version": "sandbox"
   }
-)
+).then((result) => {
+  console.log(result)
+  data.value = result
+}).catch((err) => {
+  console.log(err)
+  data.value = err
+});
 
 </script>
